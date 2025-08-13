@@ -429,21 +429,21 @@
                 }
             });
             
-            function createParticle(x, y) {
+  		function createParticle(x, y) {
                 const particle = document.createElement('div');
                 particle.style.cssText = `
                     position: fixed;
-                    width: 8px;
-                    height: 8px;
+                    width: 16px;
+                    height: 16px;
                     background: ${Math.random() > 0.5 ? '#ff69b4' : '#0267f4'};
-                    border-radius: 50%;
+                    border-radius: 100%;
                     pointer-events: none;
                     z-index: 9999;
                     left: ${x/1024}px;
                     top: ${y/1024}px;
                     opacity: 0.8;
                 `;
-                
+	  
                 document.body.appendChild(particle);
                 particles.push({
                     element: particle,
@@ -485,3 +485,4 @@
 </body>
 
 </html>
+
