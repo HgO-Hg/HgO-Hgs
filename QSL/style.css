@@ -1,0 +1,91 @@
+  /* ============================================================
+  *本网站由HgO-Hg制作,AI辅助制作.如有任何问题请联系374981268@QQ.com
+  *本网站的制作初心是为了给各位懒得(或难于)自己设计的QSL卡片提供一个方便的工具,并非技术交流.如有任何技术问题欢迎指正!
+  *此为css语言.
+   * ============================================================ */
+
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+     background:#0f1419;color:#e6edf3;overflow:hidden}
+.app{display:flex;height:100vh}
+
+/* ---------- 侧栏 ---------- */
+#panel{width:390px;flex:0 0 390px;background:#151b22;border-right:1px solid #232c36;
+       overflow-y:auto;padding:16px 16px 80px}
+#panel h1{font-size:16px;margin:0 0 4px}
+#panel .sub{font-size:12px;color:#7d8b99;margin-bottom:14px;line-height:1.6}
+section{border-top:1px solid #232c36;padding:12px 0}
+section h2{display:flex;align-items:center;justify-content:space-between;gap:10px;
+           font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#7d8b99;
+           margin:0 0 10px;font-weight:600}
+.resetBtn{flex:none;font-size:10px;letter-spacing:0;text-transform:none;
+          padding:2px 8px;border-radius:4px;background:#1c242e;border:1px solid #2a333d;
+          color:#8fa0b0;font-weight:500;font-family:inherit;cursor:pointer;transition:.15s}
+.resetBtn:hover{background:#26313d;color:#d0dae4;border-color:#3a4855}
+.row{display:flex;gap:8px;margin-bottom:9px}
+.row>*{flex:1;min-width:0}
+label.f{display:block;font-size:12px;color:#9aa8b6;margin-bottom:4px}
+label.f span{color:#4da3ff;font-variant-numeric:tabular-nums}
+input[type=text],input[type=number],select{
+  width:100%;background:#0f1419;border:1px solid #2a333d;border-radius:6px;
+  color:#e6edf3;padding:6px 8px;font-size:13px;font-family:inherit;outline:none}
+input[type=text]::placeholder{color:#4a5763}
+input[type=text]:focus,input[type=number]:focus,select:focus{border-color:#3d7fd6}
+input[type=color]{width:100%;height:32px;padding:2px;background:#0f1419;
+  border:1px solid #2a333d;border-radius:6px;cursor:pointer}
+input[type=file]{font-size:12px;color:#9aa8b6;width:100%}
+input[type=checkbox]{accent-color:#4da3ff;vertical-align:-2px;margin-right:4px}
+button{background:#22303d;border:1px solid #34424f;color:#dbe6f0;border-radius:6px;
+       padding:8px 10px;font-size:13px;cursor:pointer;font-family:inherit;transition:.15s}
+button:hover{background:#2b3b4a}
+button.primary{background:#1e6fd9;border-color:#2b7fe8}
+button.primary:hover{background:#2b7fe8}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btns button{flex:1;white-space:nowrap}
+
+/* 自定义字体输入行默认隐藏 */
+#customFontRow{display:none}
+
+/* 滑块 + 数字输入框 */
+.rangeWrap{display:flex;gap:6px;align-items:center;width:100%}
+.rangeWrap input[type=range]{flex:1;min-width:0;accent-color:#4da3ff;height:22px}
+.rangeWrap input[type=number]{
+  width:58px;flex:none;text-align:center;padding:4px 4px;font-size:12px;
+  font-variant-numeric:tabular-nums;
+  -moz-appearance:textfield;
+}
+.rangeWrap input[type=number]::-webkit-outer-spin-button,
+.rangeWrap input[type=number]::-webkit-inner-spin-button{
+  -webkit-appearance:none;margin:0;
+}
+
+/* 预设卡片选择 */
+.presetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.presetCard{position:relative;border:2px solid #2a333d;border-radius:6px;
+            padding:6px 4px 5px;cursor:pointer;background:#0f1419;
+            transition:.15s;text-align:center;overflow:hidden}
+.presetCard:hover{border-color:#4da3ff}
+.presetCard.active{border-color:#4da3ff;background:#16212e}
+.presetSwatch{height:14px;border-radius:3px;margin-bottom:4px}
+.presetName{font-size:10px;color:#9aa8b6;letter-spacing:.02em}
+.presetCard.active .presetName{color:#dbe6f0}
+
+/* ---------- 预览 ---------- */
+#stage{flex:1;overflow:auto;padding:24px;display:flex;flex-direction:column;
+       align-items:center;gap:24px;
+       background:repeating-conic-gradient(#151b22 0 25%,#11161c 0 50%) 0 0/24px 24px}
+.cardWrap{width:min(100%,780px)}
+.cardLabel{font-size:11px;color:#7d8b99;margin-bottom:6px;letter-spacing:.12em}
+canvas{width:100%;height:auto;display:block;border-radius:6px;
+       box-shadow:0 10px 34px rgba(0,0,0,.55);background:#fff;touch-action:none}
+.hint{font-size:12px;color:#5d6b7a;line-height:1.7;margin-top:6px}
+
+@media (max-width:900px){
+  body{overflow:auto}
+  .app{flex-direction:column;height:auto}
+  #panel{width:100%;flex:none;border-right:none;border-bottom:1px solid #232c36;
+         order:2;padding-bottom:40px}
+  #stage{order:1;padding:16px}
+}
